@@ -1,0 +1,86 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    
+	<a href = ''><button class="logout" >Logout</button> </a>
+    <button class="add" (click)="addTable()" >Add Row</button> <br> <br> <br> <br>
+
+<table class="style">
+   
+
+    <thead>
+        
+            <tr>
+                <th>OrderNumber</th>
+                <th>OrderDueDate</th>
+                <th>BuyerName</th>
+                <th>CustomerAddress</th>
+        <th>CustomerPhone</th>
+        <th>OrderTotal</th>
+        <th>Delete</th>
+        <th>Edit</th>
+              </tr>
+              <tr *ngFor="let domain of domains; let i = index" >
+                <td>
+                  <span *ngIf="!domain.editable">{{domain.OrderNumber}}</span>
+                  <input type="text" class="form-control" [(ngModel)]="domain.OrderNumber" *ngIf="domain.editable"/>
+                </td>
+                <td>
+                  <span *ngIf="!domain.editable">{{domain.OrderDueDate}}</span>
+                   <input type="date" class="form-control" [(ngModel)]="domain.OrderDueDate" *ngIf="domain.editable"/>
+                </td>
+                <td>
+                    <span *ngIf="!domain.editable">{{domain.BuyerName}}</span>
+                     <input type="text" class="form-control" [(ngModel)]="domain.BuyerName" *ngIf="domain.editable"/>
+                  </td>  
+                  <td>
+                    <span *ngIf="!domain.editable">{{domain.CustomerAddress}}</span>
+                     <input type="text" class="form-control" [(ngModel)]="domain.CustomerAddress" *ngIf="domain.editable"/>
+                  </td>  
+                  <td>
+                    <span *ngIf="!domain.editable">{{domain.CustomerPhone}}</span>
+                     <input type="number" class="form-control" [(ngModel)]="domain.CustomerPhone" *ngIf="domain.editable"/>
+                  </td>
+                  <td>
+                    <span *ngIf="!domain.editable">{{domain.OrderTotal}}</span>
+                     <input type="number" class="form-control" [(ngModel)]="domain.OrderTotal" *ngIf="domain.editable"/>
+                  </td>
+
+                <td> <button class="my" (click) = "deleteRow(i)"  ><i class="fa fa-trash"></i></button></td>                                                 
+                <td><button class="my" (click)="editDomain(domain)" data-toggle="modal" data-original-title="Edit"  ><i class="fa fa-pencil"></i></button></td>
+              </tr>  
+
+
+      <!-- <tr>
+        <th>Domain</th>
+        <th>Registered Date</th>
+        <th>delete action</th>
+        <th>edit action</th>
+
+      </tr>
+      <tr *ngFor="let domain of domains; let i = index" >
+        <td>
+          <span *ngIf="!domain.editable">{{domain.name}}</span>
+          <input type="text" class="form-control" [(ngModel)]="domain.name" *ngIf="domain.editable"/>
+        </td>
+        <td>
+          <span *ngIf="!domain.editable">{{domain.reg_date}}</span>
+           <input type="date" class="form-control" [(ngModel)]="domain.reg_date" *ngIf="domain.editable"/>
+        </td>
+        
+        <td> <button (click) = "deleteRow(i)"  ><i class="fa fa-trash"></i></button></td>                                                 
+        <td><button  (click)="editDomain(domain)" data-toggle="modal" data-original-title="Edit"  ><i class="fa fa-pencil"></i></button></td>
+      </tr> -->
+
+            
+    </thead>
+    <tbody>  
+         </tbody> 
+        
+        </table>
+  </body>
+  </html>
+
+
+  
